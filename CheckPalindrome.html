@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter string"/>
+    <input type="submit" value="Check word"/>
+
+    <script defer>
+        function reverseString(str){
+            let $tmp ='';
+            let $counter = str.length -1;
+            for($counter; $counter>=0; $counter--){
+                $tmp += str[$counter];
+                console.log($tmp);
+            }
+            return $tmp;
+        }
+
+        function checkPalindrome(str){
+            let $tmp = reverseString(str);
+            if(str === $tmp){
+                return true;
+            }         
+            return false;
+        }
+
+        var textField = document.getElementsByTagName('input')[0];
+        var submitBtn = document.getElementsByTagName('input')[1];
+
+        submitBtn.addEventListener('click', ()=> {
+            let $tmp = textField.value;
+            if(checkPalindrome($tmp)){
+                alert('\"' + $tmp + '\"' + ' is Palindrome');
+            }
+            else{
+                alert('\"' + $tmp + '\"' + ' is NOT Palindrome');
+            }
+        });
+    </script>
+</body>
+</html>
